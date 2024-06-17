@@ -1,0 +1,78 @@
+rock = '''
+    _______
+---'   ____)
+      (_____)
+      (_____)
+      (____)
+---.__(___)
+'''
+
+paper = '''
+    _______
+---'   ____)____
+          ______)
+          _______)
+         _______)
+---.__________)
+'''
+
+scissors = '''
+    _______
+---'   ____)____
+          ______)
+       __________)
+      (____)
+---.__(___)
+'''
+
+
+import random
+options = [rock, paper, scissors]
+print("Let's Play Rock Paper Scissors!")
+
+# Ask user input
+
+user_choice = input("What move are you choosing first? Type '0' for rock, '1' for paper, or '2' scissors.\n").lower()
+if user_choice == "0":
+    user_choice = options[0]
+elif user_choice == "1":
+    user_choice = options[1]
+elif user_choice == "2":
+    user_choice = options[2]
+print(f"You chose: {user_choice}")
+
+
+# generate random computer input
+
+options = [rock, paper, scissors]
+computer_choice = random.choice(options)
+print(f"The computer chose: {computer_choice}")
+
+# Define what constitutes a tie.
+if computer_choice == user_choice:
+    print("It's a tie, restart the game to play again.")
+    
+# Define what constitutes the computer as a winner.
+computer_wins = "You've lost, better luck next time!"
+# Computer chooses rock and user chooses scissors
+if computer_choice == options[0] and user_choice == options[2]:
+    print(computer_wins)
+# Computer chooses scissors and user chooses paper:
+elif computer_choice == options[2] and user_choice == options[1]:
+    print(computer_wins)
+# Computer chooses paper and user chooses rock
+elif computer_choice == options[1] and user_choice == options[0]:
+    print(computer_wins)
+
+# Define what constitutes the user as a winner.
+user_wins = "Congratulations!!! You are the winner!!!"
+# Computer chooses rock and user chooses scissors
+if user_choice == options[0] and computer_choice == options[2]:
+    print(user_wins)
+# Computer chooses scissors and user chooses paper:
+elif user_choice == options[2] and computer_choice == options[1]:
+    print(user_wins)
+# Computer chooses paper and user chooses rock
+elif user_choice == options[1] and computer_choice == options[0]:
+    print(user_wins)
+
